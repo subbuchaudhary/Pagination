@@ -8,7 +8,8 @@
 import Foundation
 
 struct Coin: Identifiable, Hashable, Codable {
-    var id: String
+    var id: String = UUID().uuidString
+    var coinId: String
     var symbol: String
     var name: String
     var image: String
@@ -17,7 +18,7 @@ struct Coin: Identifiable, Hashable, Codable {
     var priceChangeInLast24Hours: Double
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case coinId = "id"
         case symbol
         case name
         case image
@@ -46,7 +47,7 @@ struct Coin: Identifiable, Hashable, Codable {
 
 #if DEBUG
 extension Coin {
-    static let mock: Coin = Coin(id: "bitcoin",
+    static let mock: Coin = Coin(coinId: "bitcoin",
                                  symbol: "btc",
                                  name: "Bitcoin",
                                  image: "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",

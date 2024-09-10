@@ -13,46 +13,58 @@ struct CoinsListView: View {
 
     private var coinsListView: some View {
         List {
-            ForEach(viewModel.coins) { coin in
-                let model = CoinViewModel(coinName: coin.name,
-                                          coinSymbol: coin.symbol,
-                                          coinImageUrl: coin.imageUrl,
-                                          coinValue: coin.coinPrice,
-                                          coinPriceChangePercentage: coin.priceChangePercentage,
-                                          isCoinPriceIncreased: coin.isCoinPriceIncreased)
-                CoinView(viewModel: model)
-                    .onAppear {
-                        if coin.id == viewModel.coins.last?.id {
-                            viewModel.fetchData()
+            Section {
+                ForEach(viewModel.coins) { coin in
+                    let model = CoinViewModel(coinName: coin.name,
+                                              coinSymbol: coin.symbol,
+                                              coinImageUrl: coin.imageUrl,
+                                              coinValue: coin.coinPrice,
+                                              coinPriceChangePercentage: coin.priceChangePercentage,
+                                              isCoinPriceIncreased: coin.isCoinPriceIncreased)
+                    CoinView(viewModel: model)
+                        .onAppear {
+                            if coin.id == viewModel.coins.last?.id {
+                                viewModel.fetchData()
+                            }
                         }
-                    }
+                }
+            }
+
+            // Loading footer
+            if viewModel.isLoading {
+                Section(footer: loadingView) {
+                    EmptyView()
+                }
             }
         }
     }
 
+    private var loadingView: some View {
+        HStack {
+            ActivityIndicator(isAnimating: .constant(true), style: .medium)
+            Text("Loading...")
+                .font(.body)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+    }
+
     var body: some View {
         NavigationStack {
-            ZStack {
-                switch viewModel.state {
-                case .fetching:
-                    ActivityIndicator(isAnimating: .constant(true), style: .large)
-                case .idle:
-                    coinsListView
-                        .refreshable {
-                            viewModel.refreshData()
-                        }
-                        .onReceive(viewModel.$error, perform: { error in
-                            if error != nil {
-                                showAlert.toggle()
-                            }
-                        })
-                        .alert(isPresented: $showAlert, content: {
-                            Alert(title: Text("Error!"),
-                                  message: Text(viewModel.error?.localizedDescription ?? ""))
-                        })
+            coinsListView
+                .refreshable {
+                    viewModel.refreshData()
                 }
-            }
-            .navigationTitle("Crypto List")
+                .onReceive(viewModel.$error, perform: { error in
+                    if error != nil {
+                        showAlert.toggle()
+                    }
+                })
+                .alert(isPresented: $showAlert, content: {
+                    Alert(title: Text("Error!"),
+                          message: Text(viewModel.error?.localizedDescription ?? ""))
+                })
+                .navigationTitle("Crypto List")
         }
     }
 }

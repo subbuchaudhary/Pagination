@@ -18,7 +18,6 @@
 		2353AC142C901747003B5678 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AC132C901747003B5678 /* APIManager.swift */; };
 		2353AC172C90212E003B5678 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AC162C90212E003B5678 /* MyImage.swift */; };
 		2353AC1A2C9026A9003B5678 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AC192C9026A9003B5678 /* Double+Extension.swift */; };
-		2353AC1D2C9036DB003B5678 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AC1B2C9036DB003B5678 /* LoadingView.swift */; };
 		2353AC1E2C9036DB003B5678 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AC1C2C9036DB003B5678 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +34,6 @@
 		2353AC132C901747003B5678 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2353AC162C90212E003B5678 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		2353AC192C9026A9003B5678 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		2353AC1B2C9036DB003B5678 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		2353AC1C2C9036DB003B5678 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				2353AC1C2C9036DB003B5678 /* ActivityIndicator.swift */,
-				2353AC1B2C9036DB003B5678 /* LoadingView.swift */,
 				2353AC162C90212E003B5678 /* MyImage.swift */,
 			);
 			path = Components;
@@ -223,7 +220,6 @@
 				2353AC142C901747003B5678 /* APIManager.swift in Sources */,
 				2353AC0D2C90149C003B5678 /* CoinViewModel.swift in Sources */,
 				2353AC082C90145F003B5678 /* CoinsListView.swift in Sources */,
-				2353AC1D2C9036DB003B5678 /* LoadingView.swift in Sources */,
 				2353AC172C90212E003B5678 /* MyImage.swift in Sources */,
 				2353AC1E2C9036DB003B5678 /* ActivityIndicator.swift in Sources */,
 				2353AC0F2C9014A7003B5678 /* CoinView.swift in Sources */,

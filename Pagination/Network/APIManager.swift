@@ -41,7 +41,6 @@ final class APIManager {
         guard let httpResponse = response.response as? HTTPURLResponse else {
             return response.data
         }
-
         switch httpResponse.statusCode {
         case 200..<300:
             return response.data
